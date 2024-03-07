@@ -2,6 +2,9 @@ from argparse import ArgumentParser
 import socket
 from threading import Thread
 from time import time
+import pyfiglet
+
+
 open_port=[]
 def prepare_arg():
     parser=ArgumentParser(description="Python based Fast Ports scanner", usage="%(prog)s 192.168.1.2",epilog="Example - %(prog)s -s 20 -e 4000 -t 500 -v")
@@ -39,6 +42,7 @@ def scan_port():
         except StopIteration:
             break                
 if __name__ == "__main__":
+    print(pyfiglet.figlet_format('PORT SCANNER'))
     arguments=prepare_arg()
     ports=prep_port(arguments.start,arguments.end)
     start_time=time()
